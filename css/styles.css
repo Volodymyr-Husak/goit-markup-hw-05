@@ -160,18 +160,20 @@ img {
 }
 
 .link-navigation {
+    position: relative;
+
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
 
     font-weight: 500;
-
     line-height: 1.14;
     letter-spacing: 0.02em;
 
     color: var(--title-color);
 
 }
+
 
 /* contact-header */
 .contact-header {
@@ -206,9 +208,40 @@ img {
     fill: var(--blue-color);
 }
 
+/* Підкреслення */
+.link-navigation:hover::after,
+.link-navigation:focus::after {
+    position: absolute;
+
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--blue-color);
+
+    bottom: -1px;
+    left: 0;
+    border-radius: 2px;
+}
+
 .current {
     color: var(--blue-color);
 }
+
+.current::after {
+    position: absolute;
+
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--blue-color);
+
+    bottom: -1px;
+    left: 0;
+    border-radius: 2px;
+}
+
 
 .email-icon {
     width: 16px;
@@ -339,6 +372,7 @@ img {
     background-color: var(--bg-grey-cl);
     background-image: url(../images/hero/hero-bg.png),
         url(../images/hero/hero-img.png);
+
 
 }
 
