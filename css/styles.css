@@ -379,6 +379,8 @@ img {
 /*       HERO */
 /* ================== */
 .hero {
+    max-width: 1600px;
+
     padding-top: 200px;
     padding-bottom: 200px;
     margin-left: auto;
@@ -922,8 +924,8 @@ img {
 }
 
 
-.portfolio-item:hover .img-portfolio-description,
-.portfolio-item:focus .img-portfolio-description {
+.portfolio-item .link:hover .img-portfolio-description,
+.portfolio-item .link:focus .img-portfolio-description {
 
     transform: translateY(-294px);
 
