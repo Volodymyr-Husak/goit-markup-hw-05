@@ -21,6 +21,11 @@
     /* portfolio */
     --background-color-portfolio-btn: #F5F4FA;
     --brd-cl-portfolio-fig: #EEEEEE;
+    /* Змінна часу */
+    --fast-time: 250ms;
+    /* Змінна cubic-bezier */
+    --easy-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
 
 
 
@@ -179,7 +184,7 @@ img {
     color: var(--title-color);
 
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--fast-time) var(--easy-in-out);
 }
 
 
@@ -203,7 +208,7 @@ img {
     color: var(--main-color);
     fill: var(--main-color);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--fast-time) var(--easy-in-out);
 }
 
 .contact-header .item:not(:last-child) {
@@ -234,7 +239,7 @@ img {
 
     opacity: 0;
 
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--fast-time) var(--easy-in-out);
 }
 
 .link-navigation:hover::after,
@@ -352,7 +357,7 @@ img {
     border-radius: 50%;
     fill: var(--white-color);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--fast-time) var(--easy-in-out);
 }
 
 .link-footer-icons:hover,
@@ -436,7 +441,7 @@ img {
 
     background-color: var(--blue-color);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--fast-time) var(--easy-in-out);
 }
 
 .hero-btn:focus,
@@ -458,11 +463,10 @@ img {
 
     z-index: 10;
 
-    /* transform: scale(1); */
+    opacity: 1;
 
-    /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-    animation: modalWrapperScale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--fast-time) var(--easy-in-out);
+
 }
 
 .backdrop.is-hidden {
@@ -470,21 +474,18 @@ img {
     opacity: 0;
     pointer-events: none;
 
-    /* transform: scale(0); */
-
 }
 
-@keyframes modalWrapperScale {
-    0% {
-        /* transform: scale(0); */
-        scale: 0;
-    }
+/* Початковий стан елемента перед анімацією */
+.backdrop.is-hidden .modal-wrapper {
+    transform: scale(0.3), translate(-50%, -50%);
+    opacity: 0;
+}
 
-    100% {
-        /* transform: scale(1) */
-        scale: 1;
-    }
-
+/* Кінцевий стан елемента після анімації */
+.backdrop .modal-wrapper {
+    transform: scale(1), translate(-50%, -50%);
+    opacity: 1;
 }
 
 .modal-wrapper {
@@ -503,6 +504,8 @@ img {
         0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
+    transition: transform var(--fast-time) var(--easy-in-out),
+        opacity var(--fast-time) var(--easy-in-out);
 }
 
 .modal-btn {
@@ -730,8 +733,8 @@ img {
     border-radius: 50%;
 
     fill: var(--grey-cl-icons);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--fast-time) var(--easy-in-out),
+        fill var(--fast-time) var(--easy-in-out);
 
 }
 
@@ -772,8 +775,8 @@ img {
 
     /* background-color: teal; */
 
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--fast-time) var(--easy-in-out),
+        border var(--fast-time) var(--easy-in-out);
 
 
 }
@@ -818,9 +821,9 @@ img {
     color: var(--title-color);
     background-color: var(--background-color-portfolio-btn);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--fast-time) var(--easy-in-out),
+        color var(--fast-time) var(--easy-in-out),
+        box-shadow var(--fast-time) var(--easy-in-out);
 }
 
 .portfolio-btn:focus,
@@ -860,7 +863,7 @@ img {
 
     background-color: var(--white-color);
 
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow var(--fast-time) var(--easy-in-out);
 }
 
 .portfolio-item:nth-child(3n) {
@@ -923,7 +926,9 @@ img {
     max-width: 100%;
     height: 294px;
 
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--fast-time) var(--easy-in-out);
+
+
 
     background-color: var(--bg-portfolio-description);
 
