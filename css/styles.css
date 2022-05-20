@@ -351,11 +351,11 @@ img {
     border-radius: 50%;
     fill: var(--white-color);
 
-
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.link-footer-icons:hover {
-
+.link-footer-icons:hover,
+.link-footer-icons:focus {
     background-color: var(--blue-color);
     border-radius: 50%;
 }
@@ -732,6 +732,10 @@ img {
 
     color: var(--title-color);
     background-color: var(--background-color-portfolio-btn);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-btn:focus,
@@ -770,6 +774,8 @@ img {
     margin-bottom: 30px;
 
     background-color: var(--white-color);
+
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item:nth-child(3n) {
